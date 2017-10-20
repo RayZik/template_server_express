@@ -1,10 +1,10 @@
 {
-  "name": "template_server_express",
+  "name": "very_simple_template_server_express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"tsc -w -p ./app\" \"nodemon ./dist/index.js\" "
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/mralexrabota/template_server_express/issues"
   },
-  "homepage": "https://github.com/mralexrabota/template_server_express#readme"
+  "homepage": "https://github.com/mralexrabota/template_server_express#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.12.1",
+    "typescript": "^2.5.3"
+  }
 }
