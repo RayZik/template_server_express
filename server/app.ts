@@ -1,7 +1,7 @@
 import * as express from 'express';
 
 
-class Server {
+class AppSer {
 
     public app: express.Application;
 
@@ -20,4 +20,4 @@ class Server {
 }
 
 
-export default new Server().app;
+export default new AppSer().app;

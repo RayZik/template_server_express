@@ -1,13 +1,13 @@
 import * as http from 'http';
-import Server from './server';
+import AppSer from './app';
 
 
 const port = normalizePort(process.env.PORT || 3000);
-Server.set('port', port);
+AppSer.set('port', port);
 
 console.log(`Server listening on port ${port}`);
 
-const server = http.createServer(Server);
+const server = http.createServer(AppSer);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
