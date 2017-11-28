@@ -1,13 +1,16 @@
 import * as http from 'http';
-import Server from './server';
+import * as debug from 'debug';
+import AppSer from './app';
+import './typesext';
 
+debug('ts-express:server');
 
 const port = normalizePort(process.env.PORT || 3000);
-Server.set('port', port);
+AppSer.set('port', port);
 
 console.log(`Server listening on port ${port}`);
 
-const server = http.createServer(Server);
+const server = http.createServer(AppSer);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -39,5 +42,5 @@ function onError(error: NodeJS.ErrnoException): void {
 function onListening(): void {
   let addr = server.address();
   let bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
-  console.log(`Listening on ${bind}`);
+  debug(`Listening on ${bind}`);
 }
